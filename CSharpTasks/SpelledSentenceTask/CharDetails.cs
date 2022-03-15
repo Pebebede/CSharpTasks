@@ -1,14 +1,18 @@
 namespace CSharpTasks;
 
-public class SentenceContent
+public class CharDetails
 {
     public int numberOfCharOccurrences { get; }
     public char character { get; }
 
-    public SentenceContent(int numberOfCharOccurrences, char character)
+    public CharDetails(char character, int numberOfCharOccurrences)
     {
         this.numberOfCharOccurrences = numberOfCharOccurrences;
         this.character = character;
     }
 
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

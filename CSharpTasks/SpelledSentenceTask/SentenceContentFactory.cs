@@ -2,11 +2,11 @@ namespace CSharpTasks;
 
 public class SentenceContentFactory
 {
-    public List<SentenceContent> Create(Sentence originSentence)
+    public List<CharacterOccurence> Create(Sentence originSentence)
     {
         Sentence trimmedSentence = WhiteCharTrigger(originSentence);
         char[] sentenceAsArray = SentenceAsArray(trimmedSentence);
-        List<SentenceContent> literate = LiterateSentence(sentenceAsArray, trimmedSentence);
+        List<CharacterOccurence> literate = LiterateSentence(sentenceAsArray, trimmedSentence);
         return literate;
     }
 
@@ -24,9 +24,9 @@ public class SentenceContentFactory
         return array;
     }
 
-    private List<SentenceContent> LiterateSentence(char[] chars, Sentence trimmedSentence)
+    private List<CharacterOccurence> LiterateSentence(char[] chars, Sentence trimmedSentence)
     {
-        List<SentenceContent> lettersInAWord = new List<SentenceContent>();
+        List<CharacterOccurence> lettersInAWord = new List<CharacterOccurence>();
         List<char> listOfCheckedChars = new List<char>();
         string str = trimmedSentence.GetSentence();
        
@@ -36,7 +36,7 @@ public class SentenceContentFactory
             if (!listOfCheckedChars.Contains(chars[i]))
             {
                 int frequency = str.Count(f => (f == chars[i]));
-                lettersInAWord.Add(new SentenceContent(frequency,chars[i]));
+                lettersInAWord.Add(new CharacterOccurence(frequency,chars[i]));
                 listOfCheckedChars.Add(chars[i]);
             }
 
